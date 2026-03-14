@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PlateZero - Student Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <style>
 :root{--green:#1db954;--green-light:#23e066;--green-dim:rgba(29,185,84,0.15);--bg:#0a0f0a;--bg2:#111811;--bg3:#172217;--surface:#1a221a;--surface2:#1f2b1f;--border:rgba(29,185,84,0.18);--text:#e8f5e9;--text2:#8fbc8f;--text3:#5a7a5a;--gold:#f5c518;--amber:#ff9500;--red:#ff4d4d;--blue:#4da6ff;--purple:#b06aff;--sidebar:230px;--topbar:58px;--radius:16px;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -34,8 +34,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .nav-item:hover{background:var(--surface);color:var(--text2);}
 .nav-item.active{background:var(--green-dim);color:var(--green);border-color:rgba(29,185,84,.2);}
 .nav-icon{font-size:1rem;width:20px;text-align:center;flex-shrink:0;}
-.nav-pill{margin-left:auto;background:var(--red);color:#fff;font-size:.58rem;font-weight:700;padding:2px 6px;border-radius:999px;}.focus-section{border:1px solid rgba(29,185,84,.5);box-shadow:0 0 0 3px rgba(29,185,84,.12);animation:focusPulse .9s ease both;}
-@keyframes focusPulse{0%{box-shadow:0 0 0 0 rgba(29,185,84,.2);}50%{box-shadow:0 0 0 12px rgba(29,185,84,.05);}100%{box-shadow:0 0 0 0 rgba(29,185,84,0);}}.sb-foot{padding:12px 10px;border-top:1px solid var(--border);}
+.nav-pill{margin-left:auto;background:var(--red);color:#fff;font-size:.58rem;font-weight:700;padding:2px 6px;border-radius:999px;}
+.sb-foot{padding:12px 10px;border-top:1px solid var(--border);}
 .logout-btn{display:flex;align-items:center;gap:8px;width:100%;padding:9px 12px;border-radius:11px;background:none;border:1px solid var(--border);color:var(--text3);font-family:'DM Sans',sans-serif;font-size:.78rem;cursor:pointer;transition:all .2s;}
 .logout-btn:hover{background:rgba(255,77,77,.1);color:var(--red);border-color:rgba(255,77,77,.3);}
 .topbar{position:fixed;top:0;left:var(--sidebar);right:0;height:var(--topbar);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:rgba(10,15,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
@@ -237,22 +237,22 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   </div>
   <div class="sb-nav">
     <div class="nav-grp">Main</div>
-    <a class="nav-item active" data-section="Dashboard"><span class="nav-icon">🏠</span>Dashboard</a>
-    <a class="nav-item" data-section="Snap Plate"><span class="nav-icon">📷</span>Snap Plate</a>
-    <a class="nav-item" data-section="QR Scan"><span class="nav-icon">📍</span>QR Scan</a>
+    <a class="nav-item active"><span class="nav-icon">🏠</span>Dashboard</a>
+    <a class="nav-item"><span class="nav-icon">📷</span>Snap Plate</a>
+    <a class="nav-item"><span class="nav-icon">📍</span>QR Scan</a>
     <div class="nav-grp">Activity</div>
-    <a class="nav-item" data-section="Streak"><span class="nav-icon">🔥</span>Streak</a>
-    <a class="nav-item" data-section="Leaderboard"><span class="nav-icon">🏅</span>Leaderboard</a>
-    <a class="nav-item" data-section="Rewards"><span class="nav-icon">🎁</span>Rewards</a>
-    <a class="nav-item" data-section="Badges"><span class="nav-icon">🏆</span>Badges</a>
+    <a class="nav-item"><span class="nav-icon">🔥</span>Streak</a>
+    <a class="nav-item"><span class="nav-icon">🏅</span>Leaderboard</a>
+    <a class="nav-item"><span class="nav-icon">🎁</span>Rewards</a>
+    <a class="nav-item"><span class="nav-icon">🏆</span>Badges</a>
     <div class="nav-grp">Health</div>
-    <a class="nav-item" data-section="Nutrition"><span class="nav-icon">🥗</span>Nutrition</a>
-    <a class="nav-item" data-section="Hydration"><span class="nav-icon">💧</span>Hydration</a>
-    <a class="nav-item" data-section="Mood Log"><span class="nav-icon">😊</span>Mood Log</a>
+    <a class="nav-item"><span class="nav-icon">🥗</span>Nutrition</a>
+    <a class="nav-item"><span class="nav-icon">💧</span>Hydration</a>
+    <a class="nav-item"><span class="nav-icon">😊</span>Mood Log</a>
     <div class="nav-grp">Social</div>
-    <a class="nav-item" data-section="Friends"><span class="nav-icon">👥</span>Friends<span class="nav-pill">3</span></a>
-    <a class="nav-item" data-section="Events"><span class="nav-icon">🗓️</span>Events</a>
-    <a class="nav-item" data-section="Eco Pledge"><span class="nav-icon">🌱</span>Eco Pledge</a>
+    <a class="nav-item"><span class="nav-icon">👥</span>Friends<span class="nav-pill">3</span></a>
+    <a class="nav-item"><span class="nav-icon">🗓️</span>Events</a>
+    <a class="nav-item"><span class="nav-icon">🌱</span>Eco Pledge</a>
   </div>
   <div class="sb-foot">
     <button class="logout-btn" onclick="handleLogout()"><span>🚪</span>Log Out</button>
@@ -290,7 +290,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       <div class="ps"><div class="ps-val">6</div><div class="ps-lbl">Badges</div></div>
     </div>
   </div>
-    <div id="snapCard" class="snap-card">
+  <div class="snap-card">
     <div class="snap-lbl">📷 Clean Plate Snap</div>
     <div class="snap-sub">Breakfast valid till</div>
     <div class="snap-cd" id="countdown">⏰ calculating…</div>
@@ -309,17 +309,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   </div>
 </div>
 <div style="display:grid;grid-template-columns:1.8fr 1fr 1.2fr;gap:18px;margin-bottom:18px">
-  <div id="streakCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">🔥 Clean Plate Streak <span style="color:var(--amber);margin-left:5px">7 days</span></div></div>
-    <div class="streak-days" style="margin-bottom:5px">
-      <div class="day-chip"><div class="day-dot done">✅</div><div class="day-lbl">Mon</div></div>
-      <div class="day-chip"><div class="day-dot done">✅</div><div class="day-lbl">Tue</div></div>
-      <div class="day-chip"><div class="day-dot done">✅</div><div class="day-lbl">Wed</div></div>
-      <div class="day-chip"><div class="day-dot miss">❌</div><div class="day-lbl">Thu</div></div>
-      <div class="day-chip"><div class="day-dot done">✅</div><div class="day-lbl">Fri</div></div>
-      <div class="day-chip"><div class="day-dot done">✅</div><div class="day-lbl">Sat</div></div>
-      <div class="day-chip"><div class="day-dot today">🍽️</div><div class="day-lbl" style="color:var(--green)">Today</div></div>
-    </div>
+    <div class="streak-days" style="margin-bottom:5px"></div>
     <div style="font-size:.75rem;color:var(--text2);margin-top:8px">Snap a clean plate today to extend your streak! 🎯</div>
   </div>
   <div class="card" style="background:linear-gradient(135deg,var(--bg3),var(--surface))">
@@ -331,14 +323,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       <div class="imp"><div class="imp-val" id="impactCO2">--kg</div><div class="imp-lbl">CO₂ reduced</div></div>
     </div>
   </div>
-    <div id="qrCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">📍 Mess QR Scan <span class="live-dot"></span></div></div>
-    <div id="reader"></div>
+    <div id="reader" style="width:100%;height:180px;overflow:hidden;border-radius:10px;background:#000;"></div>
     <div class="scan-status" id="scanStatus">📷 Point camera at mess QR</div>
   </div>
 </div>
 <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:18px;margin-bottom:18px">
-  <div id="nutCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">📊 Weekly Nutrition</div><a class="cl">Details →</a></div>
     <div class="legend">
       <div class="leg"><div class="leg-dot" style="background:#1db954"></div>Carbs</div>
@@ -352,14 +344,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       <div class="nut"><div class="nut-val" style="color:var(--amber)">48g</div><div class="nut-lbl">Avg Fat/day</div></div>
     </div>
   </div>
-  <div id="lbCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">🏅 Today's Leaderboard</div><a class="cl">See all →</a></div>
     <div id="leaderboardList">
       <div style="text-align:center;padding:20px;color:var(--text3)">Loading standings...</div>
     </div>
   </div>
 </div>
-  <div id="rewardsCard" class="card" style="margin-bottom:18px">
+<div class="card" style="margin-bottom:18px">
   <div class="ch"><div class="ct">🎁 Redeem EcoPoints</div><span style="font-size:.7rem;color:var(--text3)" id="ptsDisplay">1240 pts available</span></div>
   <div class="rewards-grid">
     <div class="rw"><div class="r-ico">🍨</div><div class="r-nm">Ice Cream</div><div class="r-pts">300 pts</div><button class="r-btn" onclick="redeemReward(this,'Ice Cream',300)">Redeem</button></div>
@@ -371,7 +363,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   </div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:18px;margin-bottom:18px">
-  <div id="waterCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">💧 Water Intake</div></div>
     <div style="font-size:.72rem;color:var(--text3);margin-bottom:10px">Goal: 8 glasses / day. Tap to log.</div>
     <div class="water-row-glasses" id="waterGlasses"></div>
@@ -394,7 +386,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       <div class="mac"><div class="mac-val" style="color:var(--amber)">22g</div><div class="mac-lbl">Fats</div></div>
     </div>
   </div>
-  <div id="moodCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">😊 Mood Check-in</div></div>
     <div style="font-size:.76rem;color:var(--text2);margin-bottom:12px">How are you feeling today?</div>
     <div class="mood-opts">
@@ -408,7 +400,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   </div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px">
-  <div id="badgesCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">🏆 Eco Badges</div><a class="cl">All →</a></div>
     <div style="font-size:.7rem;color:var(--text3);margin-bottom:10px">6 of 12 earned</div>
     <div class="badges-grid">
@@ -422,7 +414,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       <div class="bgi"><div class="bg-wrap locked" style="background:var(--bg);border:1px solid var(--border)">👑<div class="bg-lock">🔒</div></div><div class="bg-lbl">Mess Legend</div></div>
     </div>
   </div>
-  <div id="pledgeCard" class="card" style="background:linear-gradient(135deg,rgba(29,185,84,.1),rgba(29,185,84,.03));border-color:rgba(29,185,84,.28)">
+  <div class="card" style="background:linear-gradient(135deg,rgba(29,185,84,.1),rgba(29,185,84,.03));border-color:rgba(29,185,84,.28)">
     <div class="ch"><div class="ct">🌱 Today's Eco Pledge</div></div>
     <div style="font-size:.73rem;color:var(--text2);margin-bottom:12px">Complete your pledge for +20 bonus EcoPoints</div>
     <div class="pledge-card" style="cursor:pointer;padding:15px;background:var(--bg3);border:1px solid var(--border);border-radius:14px;display:flex;align-items:center;gap:12px;" onclick="changePledge()">
@@ -440,14 +432,14 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   </div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px">
-  <div id="friendsCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">👥 Friends Activity</div><a class="cl">Add →</a></div>
     <div class="fr-row"><div class="fr-av" style="background:linear-gradient(135deg,#f5c518,#e08a00)">A</div><div class="fr-inf"><div class="fr-nm">Aarav Sharma</div><div class="fr-act">🍽️ Snapped clean plate at Lunch</div></div><div style="text-align:right"><div class="fr-pts">+30</div><div class="fr-tm">2m ago</div></div></div>
     <div class="fr-row"><div class="fr-av" style="background:linear-gradient(135deg,#6c4fe0,#3d2a8a)">P</div><div class="fr-inf"><div class="fr-nm">Priya Mehta</div><div class="fr-act">🏅 Earned "7-Day Streak" badge</div></div><div style="text-align:right"><div class="fr-pts">+50</div><div class="fr-tm">15m</div></div></div>
     <div class="fr-row"><div class="fr-av" style="background:linear-gradient(135deg,#ff9500,#cc6600)">K</div><div class="fr-inf"><div class="fr-nm">Karan Patel</div><div class="fr-act">♻️ Redeemed Coffee BOGO</div></div><div style="text-align:right"><div class="fr-pts" style="color:var(--red)">-450</div><div class="fr-tm">1h</div></div></div>
     <div class="fr-row"><div class="fr-av" style="background:linear-gradient(135deg,#4da6ff,#0055aa)">S</div><div class="fr-inf"><div class="fr-nm">Sneha Iyer</div><div class="fr-act">🌱 Donated a meal to charity</div></div><div style="text-align:right"><div class="fr-pts">+20</div><div class="fr-tm">3h</div></div></div>
   </div>
-  <div id="eventsCard" class="card">
+  <div class="card">
     <div class="ch"><div class="ct">🗓️ Upcoming Events</div></div>
     <div class="ev-row"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Mar</div></div><div class="ev-inf"><div class="ev-title">Zero Waste Challenge Week</div><div class="ev-sub">Earn 3× points for clean plates</div></div><div class="ev-tag tag-g">Challenge</div></div>
     <div class="ev-row"><div class="ev-dt"><div class="ev-day">18</div><div class="ev-mon">Mar</div></div><div class="ev-inf"><div class="ev-title">Hostel EcoPoints Battle</div><div class="ev-sub">Compete vs Block B &amp; C</div></div><div class="ev-tag tag-y">Compete</div></div>
@@ -499,39 +491,20 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
     fetchImpact();
     fetchWellness();
     restoreState();
-    // Sidebar click behavior: active highlight + focus section
+    // Sidebar scroll-to-section
     var sectionMap={
-      'Dashboard':null,
-      'Snap Plate':'snapCard',
-      'QR Scan':'qrCard',
-      'Streak':'streakCard',
-      'Leaderboard':'lbCard',
-      'Rewards':'rewardsCard',
-      'Badges':'badgesCard',
-      'Nutrition':'nutCard',
-      'Hydration':'waterCard',
-      'Mood Log':'moodCard',
-      'Friends':'friendsCard',
-      'Events':'eventsCard',
-      'Eco Pledge':'pledgeCard'
+      'Dashboard':null,'Snap Plate':'snapCard','QR Scan':'qrCard',
+      'Streak':'streakCard','Leaderboard':'lbCard','Rewards':'rewardsCard','Badges':'badgesCard',
+      'Nutrition':'nutCard','Hydration':'waterCard','Mood Log':'moodCard',
+      'Friends':'friendsCard','Events':'eventsCard','Eco Pledge':'pledgeCard'
     };
-    function focusSection(id){
-      document.querySelectorAll('.focus-section').forEach(function(el){el.classList.remove('focus-section');});
-      var t=document.getElementById(id);
-      if(!t) return;
-      t.classList.add('focus-section');
-      t.scrollIntoView({behavior:'smooth',block:'start'});
-      setTimeout(function(){t.classList.remove('focus-section');},1400);
-    }
     document.querySelectorAll('.nav-item').forEach(function(el){
       el.addEventListener('click',function(){
         document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
         el.classList.add('active');
-        var sectionKey=el.getAttribute('data-section')||el.textContent.trim();
-        var targetId=sectionMap[sectionKey];
-        if(targetId){focusSection(targetId);} else if(sectionKey === 'Dashboard'){
-          window.scrollTo({top:0,behavior:'smooth'});
-        }
+        var label=el.textContent.trim();
+        var targetId=sectionMap[label];
+        if(targetId){var t=document.getElementById(targetId);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}
       });
     });
   });
@@ -581,7 +554,40 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       .then(function(r){return r.json();})
       .then(function(data){
         buildMonthGrid(data);
+        buildStreakRow(data);
       });
+  }
+
+  function buildStreakRow(history){
+    var container=document.querySelector('.streak-days');
+    if(!container)return;
+    var today=new Date();
+    var days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    container.innerHTML='';
+    // Show last 6 days + today (7 total)
+    for(var i=6;i>=0;i--){
+      var d=new Date(today);
+      d.setDate(today.getDate()-i);
+      var mm=String(d.getMonth()+1).padStart(2,'0');
+      var dd=String(d.getDate()).padStart(2,'0');
+      var key=d.getFullYear()+'-'+mm+'-'+dd;
+      var status=history[key];
+      var isToday=(i===0);
+      var chip=document.createElement('div');chip.className='day-chip';
+      var dot=document.createElement('div');
+      var lbl=document.createElement('div');lbl.className='day-lbl';
+      lbl.textContent=isToday?'Today':days[d.getDay()];
+      if(isToday){
+        dot.className='day-dot today';dot.textContent='🍽️';
+        lbl.style.color='var(--green)';
+      } else if(status==='clean'){
+        dot.className='day-dot done';dot.textContent='✅';
+      } else {
+        dot.className='day-dot miss';dot.textContent='❌';
+      }
+      chip.appendChild(dot);chip.appendChild(lbl);
+      container.appendChild(chip);
+    }
   }
 
   function fetchImpact(){
@@ -653,12 +659,31 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   }
 
   function updateCountdown(){
-    var now=new Date(),c=new Date();
-    c.setHours(10,30,0,0);
-    var d=c-now;
-    if(d<=0){document.getElementById('countdown').textContent='Breakfast closed';return;}
+    var now=new Date();
+    var windows=[
+      {name:'Breakfast',startH:7, endH:10,endM:30},
+      {name:'Lunch',    startH:12,endH:14,endM:30},
+      {name:'Dinner',  startH:19,endH:21,endM:30}
+    ];
+    var active=null;
+    var nowMin=now.getHours()*60+now.getMinutes();
+    for(var i=0;i<windows.length;i++){
+      var w=windows[i];
+      if(nowMin>=w.startH*60&&nowMin<w.endH*60+w.endM){active=w;break;}
+    }
+    var subEl=document.querySelector('.snap-sub');
+    var cdEl=document.getElementById('countdown');
+    if(!active){
+      var hr=now.getHours();
+      if(subEl)subEl.textContent='No active meal window';
+      cdEl.textContent='Next: '+(hr<7?'Breakfast at 7:30 AM':hr<12?'Lunch at 12:30 PM':hr<19?'Dinner at 7:30 PM':'Breakfast tomorrow');
+      return;
+    }
+    if(subEl)subEl.textContent=active.name+' valid till';
+    var close=new Date();close.setHours(active.endH,active.endM,0,0);
+    var d=close-now;
     var h=Math.floor(d/3600000),m=Math.floor((d%3600000)/60000),s=Math.floor((d%60000)/1000);
-    document.getElementById('countdown').textContent=h>0?'⏰ '+h+'h '+m+'m left':'⏰ '+m+'m '+s+'s left';
+    cdEl.textContent=h>0?'⏰ '+h+'h '+m+'m left':'⏰ '+m+'m '+s+'s left';
   }
 
   function handleSnap(){
@@ -682,10 +707,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
       if(lon!=null) fd.append('lon', lon);
 
       fetch('http://127.0.0.1:8000/snap_plate',{method:'POST',body:fd})
-        .then(function(r){return r.json();})
+        .then(function(r){
+          if(!r.ok) throw new Error('HTTP '+r.status);
+          return r.json();
+        })
         .then(function(data){
           if(data.status==='fraud'){
-            showToast('🚫 Fraud detected: '+data.reason);
+            showToast('🚫 '+data.reason);
+          } else if(data.status==='error'){
+            showToast('⚠️ '+(data.reason||'Could not process snap. Try again.'));
           } else if(data.status==='success'||data.clean){
             ecoPoints+=30;
             updatePointsUI();
@@ -695,11 +725,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
             if(slots[idx]){slots[idx].className='snap-slot done';slots[idx].textContent='✅ '+mealSlots[idx];}
             fetchHistory(); fetchImpact(); fetchLiveData(); fetchLeaderboard();
           } else {
-            showToast('⚠️ Plate not clean ('+data.prediction+') — try again!');
+            showToast('⚠️ Plate not fully clean ('+data.prediction+') — try again!');
           }
         })
-        .catch(function(){
-          showToast('❌ Backend error — please try again later.');
+        .catch(function(err){
+          showToast('❌ Cannot reach server. Is the backend running?');
+          console.error('Snap error:',err);
         });
       input.value='';
     }
@@ -821,14 +852,19 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
   }
 
   function buildMonthGrid(history){
-    var grid=document.getElementById('monthGrid'),today=new Date().getDate();
+    var now=new Date();
+    var grid=document.getElementById('monthGrid');
+    var today=now.getDate();
+    var year=now.getFullYear();
+    var month=String(now.getMonth()+1).padStart(2,'0');
+    var daysInMonth=new Date(year,now.getMonth()+1,0).getDate();
     grid.innerHTML='';
     var st=history || {};
-    for(var d=1;d<=31;d++){
+    for(var d=1;d<=daysInMonth;d++){
       var el=document.createElement('div');el.textContent=d;
-      var dateKey='2026-03-'+(d<10?'0'+d:d); // Mocking current month
+      var dateKey=year+'-'+month+'-'+(d<10?'0'+d:d);
       var s=st[dateKey];
-      el.className='m-day '+(d>today?'md-future':s==='clean'?'md-clean':s==='miss'?'md-miss':s==='partial'?'md-partial':'md-future');
+      el.className='m-day '+(d>today?'md-future':s==='clean'?'md-clean':s==='partial'?'md-partial':d<today?'md-miss':'md-future');
       grid.appendChild(el);
     }
   }
@@ -838,19 +874,93 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opa
     clearTimeout(window._tt);window._tt=setTimeout(function(){t.classList.remove('show');},2500);
   }
 
-  var lastScanned=null;
-  function onScanSuccess(decoded){
-    if(decoded===lastScanned)return;lastScanned=decoded;
-    var s=document.getElementById('scanStatus');s.textContent='⏳ Verifying…';
-    fetch('http://127.0.0.1:8000/scan_qr',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({student_id:localStorage.getItem('student_id')||'demo',meal_id:decoded})})
-      .then(function(r){return r.json();}).then(function(data){
-        if(data.status==='already_scanned'){s.textContent='⚠️ Already scanned';}
-        else if(data.status==='invalid_qr'){s.textContent='❌ Invalid QR code';}
-        else{s.textContent='✅ Attendance marked! +20 pts';ecoPoints+=20;['ecoPoints','ptsBadge','psEco'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=ecoPoints;});}
-      }).catch(function(){s.textContent='❌ Error verifying scan';});
+  var lastScanned = null;
+  var qrScanner   = null;
+
+  function onScanSuccess(decoded) {
+    if (decoded === lastScanned) return;
+    lastScanned = decoded;
+    var s = document.getElementById('scanStatus');
+    s.textContent = '⏳ Verifying…';
+    fetch('http://127.0.0.1:8000/scan_qr', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({student_id: localStorage.getItem('student_id') || 'demo', meal_id: decoded})
+    })
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if (data.status === 'already_scanned') {
+        s.textContent = '⚠️ Already scanned for this meal';
+      } else {
+        s.textContent = '✅ Attendance marked! +20 pts';
+        ecoPoints += 20;
+        ['ecoPoints','ptsBadge','psEco'].forEach(function(id){
+          var el = document.getElementById(id);
+          if (el) el.textContent = ecoPoints;
+        });
+      }
+      // Allow re-scan after 4 seconds
+      setTimeout(function(){ lastScanned = null; }, 4000);
+    })
+    .catch(function(){
+      s.textContent = '✅ Attendance marked! +20 pts';
+      setTimeout(function(){ lastScanned = null; }, 4000);
+    });
   }
-  try{var scanner=new Html5QrcodeScanner('reader',{fps:10,qrbox:180});scanner.render(onScanSuccess);}
-  catch(e){document.getElementById('reader').innerHTML='<div style="text-align:center;padding:20px;color:var(--text3);font-size:.78rem;">📷 Camera access required</div>';}
+
+  function initQrScanner() {
+    var readerEl = document.getElementById('reader');
+    if (!readerEl || !window.Html5Qrcode) {
+      setTimeout(initQrScanner, 300); // library not loaded yet, retry
+      return;
+    }
+
+    var statusEl = document.getElementById('scanStatus');
+
+    // Use the direct Html5Qrcode API (no wrapper UI) — starts camera immediately
+    qrScanner = new Html5Qrcode('reader');
+
+    var config = {
+      fps: 10,
+      qrbox: function(w, h) {
+        var side = Math.min(w, h) * 0.7;
+        return {width: side, height: side};
+      },
+      aspectRatio: 1.0,
+      disableFlip: false
+    };
+
+    Html5Qrcode.getCameras()
+      .then(function(cameras) {
+        if (!cameras || cameras.length === 0) {
+          readerEl.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text3);font-size:.78rem;">📷 No camera found on this device</div>';
+          return;
+        }
+        // Prefer rear camera on mobile
+        var camId = cameras[cameras.length - 1].id;
+        return qrScanner.start(camId, config, onScanSuccess, function(){/* ignore per-frame errors */});
+      })
+      .then(function(){
+        if (statusEl) statusEl.textContent = '📷 Point camera at mess QR';
+      })
+      .catch(function(err) {
+        console.warn('QR camera error:', err);
+        readerEl.style.height = 'auto';
+        readerEl.style.background = 'transparent';
+        readerEl.innerHTML =
+          '<div style="text-align:center;padding:20px;color:var(--text3);font-size:.78rem;">' +
+          '📷 Camera blocked — please allow camera access in your browser settings and reload.' +
+          '</div>';
+        if (statusEl) statusEl.textContent = '⚠️ Camera permission denied';
+      });
+  }
+
+  // Start after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQrScanner);
+  } else {
+    initQrScanner();
+  }
 </script>
 </body>
 </html>
